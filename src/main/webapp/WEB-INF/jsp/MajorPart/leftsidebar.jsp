@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<div class="panel-group col-sm-2" id="hrms_sidebar_left" role="tablist" aria-multiselectable="true">
+<div class="panel-group col-sm-2" id="patir_sidebar_left" role="tablist" aria-multiselectable="true">
     <ul class="nav nav-pills nav-stacked emp_sidebar">
         <li role="presentation" class="active">
             <a href="#" data-toggle="collapse" data-target="#collapse_emp">
@@ -26,16 +26,16 @@
         </li>
     </ul>
 
-</div><!-- /.panel-group，#hrms_sidebar_left -->
+</div><!-- /.panel-group，#patir_sidebar_left -->
 
 <script type="text/javascript">
     //跳转到员工页面
     $(".emp_info").click(function () {
-        $(this).attr("href", "/hrms/emp/getEmpList");
+        $(this).attr("href", "/patir/emp/getEmpList");
     });
     //跳转到部门页面
     $(".dept_info").click(function () {
-        $(this).attr("href", "/hrms/dept/getDeptList");
+        $(this).attr("href", "/patir/dept/getDeptList");
     });
     //员工清零这个功能暂未实现
     $(".emp_clearall_btn").click(function () {

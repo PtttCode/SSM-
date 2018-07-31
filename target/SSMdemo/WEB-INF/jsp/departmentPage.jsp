@@ -5,13 +5,13 @@
     <title>部门管理页面</title>
 </head>
 <body>
-<div class="hrms_dept_container">
+<div class="patir_dept_container">
     <!-- 导航栏-->
     <%@ include file="./MajorPart/head.jsp"%>
 
 
     <!-- 中间部分（左侧栏+表格内容） -->
-    <div class="hrms_dept_body">
+    <div class="patir_dept_body">
         <!-- 左侧栏 -->
         <%@ include file="./MajorPart/leftsidebar.jsp"%>
 
@@ -54,7 +54,7 @@
                     </div>
                     <nav aria-label="Page navigation" class="pull-right">
                         <ul class="pagination">
-                            <li><a href="/hrms/dept/getDeptList?pageNo=1">首页</a></li>
+                            <li><a href="/patir/dept/getDeptList?pageNo=1">首页</a></li>
                             <c:if test="${curPageNo==1}">
                                 <li class="disabled">
                                     <a href="#" aria-label="Previous" class="prePage">
@@ -72,10 +72,10 @@
 
                             <c:forEach begin="1" end="${totalPages<5?totalPages:5}" step="1" var="itemPage">
                                 <c:if test="${curPageNo == itemPage}">
-                                    <li class="active"><a href="/hrms/dept/getDeptList?pageNo=${itemPage}">${itemPage}</a></li>
+                                    <li class="active"><a href="/patir/dept/getDeptList?pageNo=${itemPage}">${itemPage}</a></li>
                                 </c:if>
                                 <c:if test="${curPageNo != itemPage}">
-                                    <li><a href="/hrms/dept/getDeptList?pageNo=${itemPage}">${itemPage}</a></li>
+                                    <li><a href="/patir/dept/getDeptList?pageNo=${itemPage}">${itemPage}</a></li>
                                 </c:if>
                             </c:forEach>
 
@@ -93,13 +93,13 @@
                                     </a>
                                 </li>
                             </c:if>
-                            <li><a href="/hrms/dept/getDeptList?pageNo=${totalPages}">尾页</a></li>
+                            <li><a href="/patir/dept/getDeptList?pageNo=${totalPages}">尾页</a></li>
                         </ul>
                     </nav>
                 </div>
             </div><!-- /.panel panel-success -->
         </div><!-- /.dept_info -->
-    </div><!-- /.hrms_dept_body -->
+    </div><!-- /.patir_dept_body -->
 
     <%@ include file="departmentAdd.jsp"%>
     <%@ include file="departmentUpdate.jsp"%>
@@ -107,7 +107,7 @@
     <!-- 尾部-->
     <%@ include file="./MajorPart/foot.jsp"%>
 
-</div><!-- /.hrms_dept_container -->
+</div><!-- /.patir_dept_container -->
 
 <script type="text/javascript">
     var curPageNo = ${curPageNo};
@@ -116,14 +116,14 @@
     $(".prePage").click(function () {
          if (curPageNo > 1){
              var pageNo = curPageNo - 1;
-             $(this).attr("href", "/hrms/dept/getDeptList?pageNo="+pageNo);
+             $(this).attr("href", "/patir/dept/getDeptList?pageNo="+pageNo);
          }
     });
     //下一页
     $(".nextPage").click(function () {
         if (curPageNo < totalPages){
             var pageNo = curPageNo + 1;
-            $(this).attr("href", "/hrms/dept/getDeptList?pageNo="+pageNo);
+            $(this).attr("href", "/patir/dept/getDeptList?pageNo="+pageNo);
         }
     });
 
@@ -135,12 +135,12 @@
         var curPageNo = ${curPageNo};
         if (confirm("确认删除【"+ delDeptName +"】的信息吗？")){
             $.ajax({
-                url:"/hrms/dept/delDept/"+delDeptId,
+                url:"/patir/dept/delDept/"+delDeptId,
                 type:"DELETE",
                 success:function (result) {
                     if (result.code == 100){
                         alert("删除成功！");
-                        window.location.href = "/hrms/dept/getDeptList?pageNo="+curPageNo;
+                        window.location.href = "/patir/dept/getDeptList?pageNo="+curPageNo;
                     }else {
                         alert(result.extendInfo.del_dept_error);
                     }

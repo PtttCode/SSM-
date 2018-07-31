@@ -68,7 +68,7 @@
 
         //2 根据id或name查询出对应员工信息进行回显；
         $.ajax({
-            url:"/hrms/emp/getEmpById/"+updateEmpId,
+            url:"/patir/emp/getEmpById/"+updateEmpId,
             type:"GET",
             success:function (result) {
                 if (result.code == 100){
@@ -84,7 +84,7 @@
 
         //2 部门回显列表；
         $.ajax({
-            url:"/hrms/dept/getDeptName",
+            url:"/patir/dept/getDeptName",
             type:"GET",
             success:function (result) {
                 if (result.code == 100){
@@ -119,7 +119,7 @@
 
         //5 点击更新按钮，发送AJAX请求到后台进行保存。
         $.ajax({
-            url:"/hrms/emp/updateEmp/"+updateEmpId,
+            url:"/patir/emp/updateEmp/"+updateEmpId,
             type:"PUT",
             data:$(".update_emp_form").serialize(),
             success:function (result) {
@@ -128,7 +128,7 @@
                     $(".emp-update-modal").modal("hide");
                     //跳转到当前页
                     var curPage = ${curPage};
-                    window.location.href="/hrms/emp/getEmpList?pageNo="+curPage;
+                    window.location.href="/patir/emp/getEmpList?pageNo="+curPage;
                 }else {
                     alert(result.extendInfo.emp_update_error);
                 }

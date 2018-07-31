@@ -49,7 +49,7 @@
         alert("id"+edit_deptId);
         //查询对应deptId的部门信息
         $.ajax({
-            url:"/hrms/dept/getDeptById/"+edit_deptId,
+            url:"/patir/dept/getDeptById/"+edit_deptId,
             type:"GET",
             success:function (result) {
                 if (result.code == 100){
@@ -66,13 +66,13 @@
 
     $(".dept_update_btn").click(function () {
         $.ajax({
-            url:"/hrms/dept/updateDept/"+edit_deptId,
+            url:"/patir/dept/updateDept/"+edit_deptId,
             type:"PUT",
             data:$(".update_dept_form").serialize(),
             success:function (result) {
                 if(result.code == 100){
                     alert("更新成功！");
-                    window.location.href = "/hrms/dept/getDeptList?pageNo="+curPageNo;
+                    window.location.href = "/patir/dept/getDeptList?pageNo="+curPageNo;
                 } else {
                     alert(result.extendInfo.update_dept_error);
                 }

@@ -16,20 +16,20 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="hrms_brand_nav">
+<div class="patir_brand_nav">
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#hrms-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#patir-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" id="company_logo" href="#">XXX公司LOGO</a>
+                <a class="navbar-brand" id="company_logo" href="./main.jsp">XXX公司LOGO</a>
             </div>
 
-            <div class="collapse navbar-collapse" id="hrms-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="patir-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active">
                         <a href="#">公司介绍 <span class="sr-only">(current)</span>  </a>
@@ -53,22 +53,18 @@
                         <ul class="dropdown-menu nav nav-pills nav-stacked">
                             <li class="active"><a href="#"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改信息</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> 头像更换</a></li>
-                            <li><a href="#" class="hrms_logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 账号退出</a></li>
+                            <li><a href="#" class="patir_logout"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> 账号退出</a></li>
                         </ul>
                     </li>
                 </ul><!-- /.nav navbar-nav navbar-right -->
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-</div><!-- /.hrms_brand_nav -->
+</div><!-- /.patir_brand_nav -->
 <script type="text/javascript">
     //主页面
-    $("#company_logo").click(function () {
-        $(this).attr("href", "/hrms/main");
-    });
-    //账号退出
-    $(".hrms_logout").click(function () {
-        window.location.href = "/hrms/login";
+        $("#company_logo").click(function () {
+        $(this).attr("href", "/patir/main");
     });
 </script>
 </body>

@@ -20,18 +20,18 @@ public interface EmployeeMapper {
 
     /*********************************插入****************************************/
     @Insert({"Update From",TableName,"(",InsertFields,")"+
-                            "Values(#{empName},"+
-                                    "#{empEmail},"+
-                                    "#{gender},"+
-                                    "#{departmentId})"})
+            "Values(#{empName},"+
+            "#{empEmail},"+
+            "#{gender},"+
+            "#{departmentId})"})
     int insertOne(Employee employee);
 
 
     /*********************************查询****************************************/
 
-    Employee selectOneById(@Param("empId") int empId);
+    Employee selectOneById(@Param("empId") Integer empId);
     Employee selectOneByName(@Param("empName") String name);
-    Employee selectWithDeptById(@Param("empId") int empId);
+    Employee selectWithDeptById(@Param("empId") Integer empId);
 
     /**
      * 分页查询
@@ -39,7 +39,7 @@ public interface EmployeeMapper {
      * @param offset 返回记录行的偏移量
      * @return 如offset=10，limit=5的时候，就会从数据库第11行记录开始返回5条查询结果，即范围从(offset+1)---(offset+limit)
      */
-    List<Employee> selectByLimitAndOffset(@Param("Limit") Integer limit,@Param("Offset") Integer offset);
+    List<Employee> selectByLimitAndOffset(@Param("offset") Integer offset,@Param("limit") Integer limit);
 
 
     @Select({"Select * From",TableName})

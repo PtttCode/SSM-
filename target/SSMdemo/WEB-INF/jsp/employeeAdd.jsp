@@ -68,7 +68,7 @@
     $(".emp_add_btn").click(function () {
 
         $.ajax({
-            url:"/hrms/dept/getDeptName",
+            url:"/patir/dept/getDeptName",
             type:"GET",
             success:function (result) {
                 if (result.code == 100){
@@ -90,7 +90,7 @@
     $("#add_inputName").change(function () {
         var empName = $("#add_inputName").val();
         $.ajax({
-            url:"/hrms/emp/checkEmpExists",
+            url:"/patir/emp/checkEmpExists",
             type:"GET",
             data:"empName="+empName,
             success:function (result) {
@@ -154,7 +154,7 @@
 
 
         $.ajax({
-            url:"/hrms/emp/addEmp",
+            url:"/patir/emp/addEmp",
             type:"POST",
             data:$(".add_emp_form").serialize(),
             success:function (result) {
@@ -163,11 +163,11 @@
                     $('#emp-add-modal').modal("hide");
                     //跳往最后一页，由于新增记录，所以要重新查询总页数
                     $.ajax({
-                        url:"/hrms/emp/getTotalPages",
+                        url:"/patir/emp/getTotalPages",
                         type:"GET",
                         success:function (result) {
                             var totalPage = result.extendInfo.totalPages;
-                            window.location.href="/hrms/emp/getEmpList?pageNo="+totalPage;
+                            window.location.href="/patir/emp/getEmpList?pageNo="+totalPage;
                         }
                     })
                 } else {

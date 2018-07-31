@@ -55,7 +55,7 @@
         var deptLeader = $("#add_deptLeader").val();
         //验证省略...
         $.ajax({
-            url:"/hrms/dept/addDept",
+            url:"/patir/dept/addDept",
             type:"PUT",
             data:$(".add_dept_form").serialize(),
             success:function (result) {
@@ -63,12 +63,12 @@
                     alert("新增成功");
                     $('.dept-add-modal').modal("hide");
                     $.ajax({
-                        url:"/hrms/dept/getTotalPages",
+                        url:"/patir/dept/getTotalPages",
                         type:"GET",
                         success:function (result) {
                             if (result.code == 100){
                                 var totalPage = result.extendInfo.totalPages;
-                                window.location.href="/hrms/dept/getDeptList?pageNo="+totalPage;
+                                window.location.href="/patir/dept/getDeptList?pageNo="+totalPage;
                             }
                         }
                     });

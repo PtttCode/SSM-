@@ -50,12 +50,12 @@
     $(function () {
         $("#login_btn").click(function () {
             $.ajax({
-                url:"/hrms/dologin",
+                url:"/patir/dologin",
                 type:"POST",
                 data:$("#login_form").serialize(),
                 success:function (result) {
                     if(result.code == 100){
-                        window.location.href= "/hrms/main";
+                        window.location.href= "/patir/main";
                     }else {
                         alert(result.extendInfo.login_error);
                     }

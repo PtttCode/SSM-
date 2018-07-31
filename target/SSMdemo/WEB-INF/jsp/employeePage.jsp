@@ -5,12 +5,12 @@
     <title>员工管理页面</title>
 </head>
 <body>
-<div class="hrms_container">
+<div class="patir_container">
     <!-- 导航条 -->
     <%@ include file="./MajorPart/head.jsp"%>
 
     <!-- 中间部分（包括左边栏和员工/部门表单显示部分） -->
-    <div class="hrms_body" style="position:relative; top:-15px;">
+    <div class="patir_body" style="position:relative; top:-15px;">
 
         <!-- 左侧栏 -->
         <%@ include file="./MajorPart/leftsidebar.jsp"%>
@@ -59,7 +59,7 @@
                     </div>
                     <nav aria-label="Page navigation" class="pull-right">
                         <ul class="pagination">
-                            <li><a href="/hrms/emp/getEmpList?pageNo=1">首页</a></li>
+                            <li><a href="/patir/emp/getEmpList?pageNo=1">首页</a></li>
                             <c:if test="${curPage==1}">
                                 <li class="disabled">
                                     <a href="#" aria-label="Previous" class="prePage">
@@ -77,10 +77,10 @@
 
                             <c:forEach begin="1" end="${totalPages<5?totalPages:5}" step="1" var="itemPage">
                                 <c:if test="${curPage == itemPage}">
-                                    <li class="active"><a href="/hrms/emp/getEmpList?pageNo=${itemPage}">${itemPage}</a></li>
+                                    <li class="active"><a href="/patir/emp/getEmpList?pageNo=${itemPage}">${itemPage}</a></li>
                                 </c:if>
                                 <c:if test="${curPage != itemPage}">
-                                    <li><a href="/hrms/emp/getEmpList?pageNo=${itemPage}">${itemPage}</a></li>
+                                    <li><a href="/patir/emp/getEmpList?pageNo=${itemPage}">${itemPage}</a></li>
                                 </c:if>
                             </c:forEach>
 
@@ -98,7 +98,7 @@
                                     </a>
                                 </li>
                             </c:if>
-                            <li><a href="/hrms/emp/getEmpList?pageNo=${totalPages}">尾页</a></li>
+                            <li><a href="/patir/emp/getEmpList?pageNo=${totalPages}">尾页</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -107,7 +107,7 @@
 
         <!-- 尾部 -->
         <%@ include file="./MajorPart/foot.jsp"%>
-    </div><!-- /.hrms_body -->
+    </div><!-- /.patir_body -->
 </div><!-- /.container -->
 
 <%@ include file="employeeAdd.jsp"%>
@@ -122,14 +122,14 @@
         $(".prePage").click(function () {
             if (curPage > 1){
                 var pageNo = curPage-1;
-                $(this).attr("href", "/hrms/emp/getEmpList?pageNo="+pageNo);
+                $(this).attr("href", "/patir/emp/getEmpList?pageNo="+pageNo);
             }
         });
         //下一页
         $(".nextPage").click(function () {
             if (curPage < totalPages){
                 var pageNo = curPage+1;
-                $(this).attr("href", "/hrms/emp/getEmpList?pageNo="+pageNo);
+                $(this).attr("href", "/patir/emp/getEmpList?pageNo="+pageNo);
             }
         });
     })
@@ -141,12 +141,12 @@
         var delEmpName = $(this).parent().parent().find("td:eq(1)").text();
         if (confirm("确认删除【" + delEmpName+ "】的信息吗？")){
             $.ajax({
-                url:"/hrms/emp/deleteEmp/"+delEmpId,
+                url:"/patir/emp/deleteEmp/"+delEmpId,
                 type:"DELETE",
                 success:function (result) {
                     if (result.code == 100){
                         alert("删除成功！");
-                        window.location.href="/hrms/emp/getEmpList?pageNo="+curPage;
+                        window.location.href="/patir/emp/getEmpList?pageNo="+curPage;
                     }else {
                         alert(result.extendInfo.emp_del_error);
                     }
