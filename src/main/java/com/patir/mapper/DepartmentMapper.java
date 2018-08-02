@@ -26,7 +26,7 @@ public interface DepartmentMapper {
     @Insert({"Update From",TableName,"(",InsertFields,")"+
                                             "Values(#{deptName},"+
                                             "{#deptLeader})"})
-    int insetDept(@Param("department")  Department department);
+    int insertDept(@Param("department")  Department department);
 
 
     /**

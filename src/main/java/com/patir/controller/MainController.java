@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class MainController {
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
-    public String main(){
-        return "main";
-    }
+    public String main(){   return "main";}
+
+    @RequestMapping(value="/boot",method = RequestMethod.GET)
+    public String boot(){   return "boot";}
 
 }

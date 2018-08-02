@@ -124,13 +124,14 @@
   <build>
       <resources>
           <resource>
-              <directory>src/main/java</directory>
+              <directory>src/main/resource</directory>
               <includes>
                   <include>**/*.xml</include>
               </includes>
-              <filtering>false</filtering>
+              <filtering>true</filtering>
           </resource>
       </resources>
+
     <finalName>SSMdemo</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
